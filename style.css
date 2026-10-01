@@ -1,0 +1,522 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0b1120;
+    --surface: #111827;
+    --surface-2: #172033;
+    --surface-3: #1f2937;
+    --border: #2d3a4e;
+    --muted: #9ca3af;
+    --text: #f9fafb;
+    --accent: #60a5fa;
+    --accent-strong: #2563eb;
+    --success: #22c55e;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+}
+
+.page-shell {
+    width: min(1500px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 42px 0 80px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.75fr);
+    gap: 26px;
+    align-items: stretch;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.05;
+}
+
+.hero-copy,
+.section-subtitle {
+    color: var(--muted);
+}
+
+.hero-copy {
+    max-width: 660px;
+    margin-bottom: 0;
+    font-size: 17px;
+}
+
+.destination-card,
+.section-block,
+.path-card,
+.milestone-content,
+.internship-card,
+.analytics-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.destination-card {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.destination-card .label,
+.streak-stat .label {
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.destination-card h2 {
+    margin: 10px 0 0;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.section-block {
+    margin-top: 30px;
+    padding: 30px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 26px;
+}
+
+.section-heading h2 {
+    margin-bottom: 7px;
+    font-size: 30px;
+}
+
+.section-subtitle {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.paths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.path-card {
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.path-main {
+    padding: 26px;
+}
+
+.path-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 74px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.path-title {
+    margin: 12px 0 0;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.info-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.info-card {
+    padding: 17px;
+    background: var(--surface-2);
+    border-radius: 14px;
+}
+
+.info-card h3,
+.milestone-content h3,
+.internship-card h3,
+.analytics-card h3 {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.info-card p {
+    margin-bottom: 0;
+}
+
+.education-line {
+    font-size: 16px;
+}
+
+.education-line strong {
+    color: var(--text);
+}
+
+.timeline-value {
+    display: inline-block;
+    padding: 7px 11px;
+    background: var(--surface-3);
+    border-radius: 9px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.fit-text {
+    color: #e5e7eb;
+}
+
+.tradeoff-card ul,
+.internship-card ul,
+.milestone-content ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+.tradeoff-card li,
+.internship-card li,
+.milestone-content li {
+    margin-bottom: 7px;
+}
+
+.journey-block {
+    padding: 0 26px 4px;
+}
+
+.journey-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 18px;
+}
+
+.journey-header h3 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.milestone-count {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.milestones {
+    position: relative;
+    padding-left: 18px;
+}
+
+.milestone {
+    position: relative;
+    padding: 0 0 22px 28px;
+}
+
+.milestone:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 13px;
+    bottom: -5px;
+    width: 2px;
+    background: var(--border);
+}
+
+.milestone-dot {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border: 3px solid var(--surface);
+    border-radius: 50%;
+    background: var(--accent-strong);
+    box-shadow: 0 0 0 1px var(--accent-strong);
+}
+
+.milestone-content {
+    padding: 17px;
+}
+
+.milestone-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.phase-chip,
+.timeframe-chip,
+.skill-chip,
+.role-chip {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+.phase-chip {
+    padding: 5px 9px;
+    background: var(--accent-strong);
+    color: white;
+    font-weight: 700;
+}
+
+.timeframe-chip {
+    padding: 5px 9px;
+    border: 1px solid var(--border);
+    color: #d1d5db;
+}
+
+.milestone-content h3 {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.skill-list,
+.role-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.skill-list {
+    margin-bottom: 13px;
+}
+
+.skill-chip,
+.role-chip {
+    padding: 6px 9px;
+    background: var(--surface-3);
+    color: #e5e7eb;
+}
+
+.projects-title,
+.roles-title,
+.prep-title {
+    margin: 15px 0 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.internship-wrap {
+    padding: 22px 26px 28px;
+}
+
+.internship-card {
+    padding: 21px;
+    background: var(--surface-2);
+}
+
+.internship-card p:last-child,
+.internship-card ul:last-child {
+    margin-bottom: 0;
+}
+
+.paths-grid > .path-card:last-child {
+    grid-column: auto;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 20px;
+}
+
+.analytics-card {
+    padding: 22px;
+}
+
+.analytics-bars {
+    display: grid;
+    gap: 14px;
+}
+
+.metric-row {
+    display: grid;
+    grid-template-columns: minmax(95px, 150px) 1fr 44px;
+    gap: 12px;
+    align-items: center;
+}
+
+.metric-name {
+    color: #e5e7eb;
+    font-size: 13px;
+}
+
+.metric-track {
+    height: 12px;
+    overflow: hidden;
+    background: var(--surface-3);
+    border-radius: 999px;
+}
+
+.metric-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--accent-strong);
+}
+
+.metric-value {
+    text-align: right;
+    color: var(--muted);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+
+.skill-frequency {
+    display: grid;
+    gap: 10px;
+}
+
+.skill-frequency-row {
+    display: grid;
+    grid-template-columns: minmax(110px, 1fr) 1fr 34px;
+    gap: 10px;
+    align-items: center;
+}
+
+.skill-frequency-track {
+    height: 10px;
+    overflow: hidden;
+    background: var(--surface-3);
+    border-radius: 999px;
+}
+
+.skill-frequency-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: inherit;
+}
+
+.streak-stat {
+    min-width: 150px;
+    padding: 12px 15px;
+    background: var(--surface-2);
+    border-radius: 14px;
+}
+
+.streak-stat strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 22px;
+}
+
+.streak-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(20px, 1fr));
+    gap: 8px;
+    max-width: 720px;
+    padding: 18px;
+    background: var(--surface-2);
+    border-radius: 15px;
+}
+
+.streak-day {
+    aspect-ratio: 1;
+    min-height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface-3);
+}
+
+.streak-day.active {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.demo-note {
+    max-width: 720px;
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.empty-state {
+    color: var(--muted);
+    font-style: italic;
+}
+
+@media (max-width: 1100px) {
+    .paths-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-shell {
+        width: min(100% - 28px, 700px);
+        padding-top: 24px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .section-block {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .paths-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .metric-row,
+    .skill-frequency-row {
+        grid-template-columns: minmax(90px, 1fr) 1.2fr 35px;
+    }
+}

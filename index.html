@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet 2 - Career Roadmap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">MEET 2 · ROADMAP</p>
+                <h1>Your Career Journey</h1>
+                <p class="hero-copy">
+                    Compare realistic routes that lead toward the same destination.
+                </p>
+            </div>
+
+            <div class="destination-card">
+                <span class="label">Destination</span>
+                <h2 id="destination"></h2>
+            </div>
+        </header>
+
+        <section class="section-block" aria-labelledby="compare-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">COMPARE</p>
+                    <h2 id="compare-title">Possible Paths</h2>
+                    <p id="routeIntro" class="section-subtitle"></p>
+                </div>
+            </div>
+
+            <div id="paths" class="paths-grid"></div>
+        </section>
+
+        <section class="section-block analytics-section" aria-labelledby="analytics-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DATA &amp; VISUALIZATION</p>
+                    <h2 id="analytics-title">Roadmap Analytics</h2>
+                    <p class="section-subtitle">
+                        Derived only from the roadmap fields returned by the AI.
+                    </p>
+                </div>
+            </div>
+
+            <div id="analytics"></div>
+        </section>
+
+        <section class="section-block streak-section" aria-labelledby="streak-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CONSISTENCY</p>
+                    <h2 id="streak-title">Journey Streak</h2>
+                    <p class="section-subtitle">
+                        Seeded demo activity for the P4 visualization.
+                    </p>
+                </div>
+                <div class="streak-stat">
+                    <span class="label">Current streak</span>
+                    <strong id="streakCount">0 days</strong>
+                </div>
+            </div>
+
+            <div id="streakGrid" class="streak-grid" aria-label="Recent activity heatmap"></div>
+            <p class="demo-note">
+                Demo data only. Connect this section to the team's activity log when backend progress data is available.
+            </p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
