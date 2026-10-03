@@ -1,3 +1,6 @@
+const APP_TITLE = "Meet 2";
+document.title = APP_TITLE;
+
 // Meet 2 — P4 Data / Visualization
 // Roadmap rendering is driven only by the current roadmap_output schema.
 // The demo payload below is copied from roadmap_output.sample.json.
