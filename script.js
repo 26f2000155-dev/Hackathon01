@@ -476,18 +476,55 @@ function renderStreak(activity) {
     const grid = document.getElementById("streakGrid");
     grid.innerHTML = "";
 
-    let streak = 0;
-    for (let i = activity.length - 1; i >= 0; i -= 1) {
-        if (activity[i] === 1) streak += 1;
-        else break;
+    let days = [];
+
+    // Existing P4 demo format:
+    // [1, 0, 1, 1, ...]
+    if (Array.isArray(activity)) {
+        days = activity.map((value, index) => ({
+            date: `Day ${index + 1}`,
+            count: Number(value) || 0
+        }));
     }
 
-    activity.forEach((day, index) => {
+    // Real backend /api/progress format:
+    // { "2026-10-01": 2, "2026-10-02": 1, ... }
+    else if (activity && typeof activity === "object") {
+        days = Object.entries(activity)
+            .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
+            .map(([date, count]) => ({
+                date,
+                count: Number(count) || 0
+            }));
+    }
+
+    if (days.length === 0) {
+        document.getElementById("streakCount").textContent = "0 days";
+        grid.innerHTML = '<p class="empty-state">No activity data yet.</p>';
+        return;
+    }
+
+    // Count consecutive active days from the latest day backward.
+    let streak = 0;
+
+    for (let i = days.length - 1; i >= 0; i -= 1) {
+        if (days[i].count > 0) {
+            streak += 1;
+        } else {
+            break;
+        }
+    }
+
+    days.forEach((day) => {
         const cell = document.createElement("div");
-        cell.className = "streak-day" + (day === 1 ? " active" : "");
-        cell.title = day === 1
-            ? `Active day ${index + 1}`
-            : `No activity ${index + 1}`;
+        const active = day.count > 0;
+
+        cell.className = "streak-day" + (active ? " active" : "");
+
+        cell.title = active
+            ? `${day.date}: ${day.count} activit${day.count === 1 ? "y" : "ies"}`
+            : `${day.date}: No activity`;
+
         grid.appendChild(cell);
     });
 
