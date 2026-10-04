@@ -490,6 +490,7 @@ function renderStreak(activity) {
     // Real backend /api/progress format:
     // { "2026-10-01": 2, "2026-10-02": 1, ... }
     else if (activity && typeof activity === "object") {
+    activity = activity.activity || activity;
         days = Object.entries(activity)
             .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
             .map(([date, count]) => ({
