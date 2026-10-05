@@ -491,12 +491,33 @@ function renderStreak(activity) {
     // { "2026-10-01": 2, "2026-10-02": 1, ... }
     else if (activity && typeof activity === "object") {
     activity = activity.activity || activity;
-        days = Object.entries(activity)
-            .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
-            .map(([date, count]) => ({
-                date,
-                count: Number(count) || 0
-            }));
+        const entries = Object.entries(activity)
+    .sort(([dateA], [dateB]) => dateA.localeCompare(dateB));
+
+if (entries.length > 0) {
+    const startDate = new Date(`${entries[0][0]}T00:00:00Z`);
+    const endDate = new Date(`${entries[entries.length - 1][0]}T00:00:00Z`);
+
+    const activityMap = Object.fromEntries(
+        entries.map(([date, count]) => [
+            date,
+            Number(count) || 0
+        ])
+    );
+
+    for (
+        let current = new Date(startDate);
+        current <= endDate;
+        current.setUTCDate(current.getUTCDate() + 1)
+    ) {
+        const date = current.toISOString().slice(0, 10);
+
+        days.push({
+            date,
+            count: activityMap[date] || 0
+        });
+    }
+}
     }
 
     if (days.length === 0) {
